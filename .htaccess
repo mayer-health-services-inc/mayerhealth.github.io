@@ -1,9 +1,12 @@
 RewriteEngine on
-RewriteRule ^(.*)$ http://www.mayerhealth.ca [NC]
-RewriteRule ^(.*)$ $1.html
+#Remove .html at the end
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
-RewriteCond %{HTTP_HOST} ^mayerhealth.ca/$1 [L,R=301]
+RewriteRule ^(.*)$ $1.html
+
+#Redirect www to *.
+RewriteCond %{HTTP_HOST} ^www.mayerhealth.ca [NC]
+RewriteRule ^(.*)$ http://mayerhealth.ca/$1 [L,R=301]
 
 
 
