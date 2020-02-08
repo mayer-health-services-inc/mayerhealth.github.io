@@ -1,11 +1,11 @@
 RewriteEngine on
 RewriteRule ^(.*)$ http://www.mayerhealth.ca [NC]
+RewriteRule ^(.*)$ $1.html
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteCond %{HTTP_HOST} ^mayerhealth.ca/$1 [L,R=301]
 
 
-RewriteRule ^(.*)$ $1.html
 
 # 1 Week for most static assets
 <filesMatch ".(jpg|jpeg|png|gif|ico|svg)$">
